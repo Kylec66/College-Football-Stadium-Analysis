@@ -1,0 +1,12 @@
+/* Body */
+body {
+    background-color: rgb(252, 252, 255);
+}
+
+/* Title */
+title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    margin: 30px;
+}
