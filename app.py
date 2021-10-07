@@ -52,7 +52,6 @@ def record():
 
 
 ####   API SET UP   ####
-
 @app.route("/api/stadiums/<conference>")
 def stadium_table(conference):
 
@@ -68,10 +67,10 @@ def stadium_table(conference):
 
     results = session.query(Stadiums.Stadium, Stadiums.Latitude, Stadiums.Longitude, Stadiums.City, Stadiums.State, Stadiums.Team, Stadiums.Conference, Stadiums.Capacity, Stadiums.Built).filter(Stadiums.Conference == conference).all()
     
-    Stadium= [result[1] for result in results]
+    Stadium= [result[0] for result in results]
     Capacity= [result[7] for result in results]
 
-    team_results = {
+    stadium_results = {
         "Stadium":Stadium,
         "Capacity":Capacity,
     }
@@ -79,9 +78,9 @@ def stadium_table(conference):
 
     session.close()
 
-    return jsonify(results)
+    return jsonify(stadium_results)
 
-@app.route ("/api/records/<conference>")
+@app.route ("/api/record/<conference>")
 def record_table(conference):
 
     session = Session(engine)
@@ -98,19 +97,17 @@ def record_table(conference):
 
     results = [list (r) for r in results]
     
-    Team= [result[1] for result in results]
-    Percentage = [result[5] for result in results]
+    Team= [result[0] for result in results]
+    Percentage = [result[4] for result in results]
 
-    team_results = {
+    record_results = {
         "Team":Team,
         "Percentage":Percentage,
     }
 
     session.close()
 
-    return jsonify()
-
-
+    return jsonify(record_results)
 
 if __name__ == "__main__":
     app.run(debug=True)
