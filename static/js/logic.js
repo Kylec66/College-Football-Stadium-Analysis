@@ -1,4 +1,4 @@
-d3.json("/api/stadiums").then((data) => {
+d3.json("/api/Stadiums").then((data) => {
 
     console.log(data)
   
@@ -37,11 +37,11 @@ d3.json("/api/record").then((data) => {
         ]
     });
   })
-  function buildStadiumChart(stadium) {
+  function buildStadiumChart(Conference) {
   
-    console.log(stadium);
+    console.log(Conference);
   
-    d3.json(`/api/stadiums/${stadium}`).then((data) => {
+    d3.json(`/api/stadiums/${Conference}`).then((data) => {
   
       var trace1 = {
         type: 'bar',
@@ -71,11 +71,11 @@ d3.json("/api/record").then((data) => {
   
   buildStadiumChart("Stadium")
 
-  function buildRecordChart(record) {
+  function buildRecordChart(team) {
   
-    console.log(record);
+    console.log(team);
   
-    d3.json(`/api/record/${record}`).then((data) => {
+    d3.json(`/api/record/${team}`).then((data) => {
   
       var trace1 = {
         type: 'bar',
@@ -94,7 +94,7 @@ d3.json("/api/record").then((data) => {
       
       var config = {responsive: true}
       
-      Plotly.newPlot('bar', data, layout, config );
+      Plotly.newPlot('v-bar', data, layout, config );
     
     })
   }
