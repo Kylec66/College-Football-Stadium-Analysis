@@ -14,16 +14,14 @@
      
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
+ 
 </head>
 
 <br> <Hr> 
 <Body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">College Football Stadiums</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -38,40 +36,33 @@
           <li class="nav-item">
             <a class="nav-link" href="/stadium">Stadium Analysis</a>
           </li>
-
   <div class="container">
     <div class="row">
-      <div class="col-md-12 text-center">
+      <div class="col-md-8 text-center">
         <h1>FBS Stadiums and Conference Records</h1>
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-2">
-        
-        <div class="well">
-          <h5>College Conference:</h5>
-          <select id="selDataset" onchange="optionStadiumChanged(this.value)"></select>
-        </div>
-
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Conference Info</h3>
-          </div>
-          <div id="conference-data" class="panel-body"></div>
-        </div>
-      </div>
-    </div>
-    
-    <table id="example" class="display" width="100%"></table>
       
-    <div class= "col-md-8">
-        <table id="record" class="display" width= "100%"></table>
+    <div class= "col-md-2">
       </div>
     
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-10">
+        <select name="Conference" id="Conference" onchange="buildStadiumMap(this.value)">
+          <option value="ACC">ACC</option>
+          <option value="American">American</option>
+          <option value="Big 12">Big 12</option>
+          <option value="Big Ten">Big Ten</option>
+          <option value="C-USA">C-USA</option>
+          <option value="Independent">Independent</option>
+          <option value="MAC">MAC</option>
+          <option value="Mountain West">Mountain West</option>
+          <option value="Pac-12">Pac-12</option>
+          <option value="SEC">SEC</option>
+          <option value="Sun Belt">Sun Belt</option>
+        </select>        
+
         <div id="map"></div>
       </div>
     </div>
@@ -86,7 +77,7 @@
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   
-  <script src="static/js/logic.js"></script>
+  <script src="static/js/map.js"></script>
   
   
 </body>
