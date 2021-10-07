@@ -67,7 +67,14 @@ def stadium_table(conference):
         conference = "Sun Belt"
 
     results = session.query(Stadiums.Stadium, Stadiums.Latitude, Stadiums.Longitude, Stadiums.City, Stadiums.State, Stadiums.Team, Stadiums.Conference, Stadiums.Capacity, Stadiums.Built).filter(Stadiums.Conference == conference).all()
+    
+    Stadium= [result[1] for result in results]
+    Capacity= [result[7] for result in results]
 
+    team_results = {
+        "Stadium":Stadium,
+        "Capacity":Capacity,
+    }
     results = [list(r) for r in results]
 
     session.close()
@@ -78,17 +85,25 @@ def stadium_table(conference):
 def record_table(conference):
 
     session = Session(engine)
+    if conference == "Big12":
+        conference = "Big 12"
+    elif conference == "BigTen":
+        conference = "Big Ten"
+    elif conference == "MountainWest":
+        conference = "Mountain West"
+    elif conference == "SunBelt":
+        conference = "Sun Belt"
 
     results = session.query(Record.Team, Record.Won, Record.Lost, Record.Tied, Record.Percentage, Record.Years, Record.Total_Games, Record.Conference).filter(Record.Conference == conference).all()
 
     results = [list (r) for r in results]
     
-    stadium= [result[3] for result in results]
-    Capacity = [result[4] for result in results]
+    Team= [result[1] for result in results]
+    Percentage = [result[5] for result in results]
 
     team_results = {
-        "Team": Team,
-        "Capacity":Capacity
+        "Team":Team,
+        "Percentage":Percentage,
     }
 
     session.close()
