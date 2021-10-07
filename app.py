@@ -53,37 +53,37 @@ def record():
 
 ####   API SET UP   ####
 
-@app.route("/api/stadiums")
-def stadium_table():
+@app.route("/api/stadiums/<conference>")
+def stadium_table(conference):
 
     session = Session(engine)
+    if conference == "Big12":
+        conference = "Big 12"
+    elif conference == "BigTen":
+        conference = "Big Ten"
+    elif conference == "MountainWest":
+        conference = "Mountain West"
+    elif conference == "SunBelt":
+        conference = "Sun Belt"
 
-    results = session.query(Stadiums.Stadium, Stadiums.Latitude, Stadiums.Longitude, Stadiums.City, Stadiums.State, Stadiums.Team, Stadiums.Conference, Stadiums.Capacity, Stadiums.Built).all()
+    results = session.query(Stadiums.Stadium, Stadiums.Latitude, Stadiums.Longitude, Stadiums.City, Stadiums.State, Stadiums.Team, Stadiums.Conference, Stadiums.Capacity, Stadiums.Built).filter(Stadiums.Conference == conference).all()
 
     results = [list(r) for r in results]
 
-    Team = [result[3] for result in results]
-    Capacity = [result[4] for result in results]
-
-    Stadium_results = {
-        "Team": Team,
-        "Capacity":Capacity
-    }
-
     session.close()
 
-    return jsonify(Stadium_results)
+    return jsonify(results)
 
-@app.route ("/api/records")
-def record_table():
+@app.route ("/api/records/<conference>")
+def record_table(conference):
 
     session = Session(engine)
 
-    results = session.query(Record.Team, Record.Won, Record.Lost, Record.Tied, Record.Percentage, Record.Years, Record.Total_Games, Record.Conference).all()
+    results = session.query(Record.Team, Record.Won, Record.Lost, Record.Tied, Record.Percentage, Record.Years, Record.Total_Games, Record.Conference).filter(Record.Conference == conference).all()
 
     results = [list (r) for r in results]
     
-    Team = [result[3] for result in results]
+    stadium= [result[3] for result in results]
     Capacity = [result[4] for result in results]
 
     team_results = {
