@@ -45,17 +45,17 @@ d3.json("/api/record").then((data) => {
   
       var trace1 = {
         type: 'bar',
-        x: data['Stadium'],
+        x: data['Team'],
         y: data['Capacity'],
         marker: {
-            color: '#C8A2C8',
+            color: '#42e6f5',
         }
       };
       
       var data = [ trace1 ];
       
       var layout = { 
-        title: 'Stadium Capcity',
+        title: 'Stadium Capacity',
       };
       
       var config = {responsive: true}
@@ -82,7 +82,7 @@ d3.json("/api/record").then((data) => {
         x: data['Team'],
         y: data['Percentage'],
         marker: {
-            color: '#C8A2C8',
+            color: '#42e6f5',
         }
       };
       
