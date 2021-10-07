@@ -111,5 +111,18 @@ def record_table(conference):
 
     return jsonify(record_results)
 
+@app.route ("/api/locations")
+def stadium_map():
+
+    session = Session(engine)
+
+    results = session.query(Stadiums.Stadium, Stadiums.Latitude, Stadiums.Longitude, Stadiums.City, Stadiums.State, Stadiums.Team, Stadiums.Conference, Stadiums.Capacity, Stadiums.Built).all()
+    
+    results = [list (r) for r in results]
+    session.close()
+
+    return jsonify(results)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
