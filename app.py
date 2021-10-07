@@ -62,13 +62,17 @@ def stadium_table():
 
     results = [list(r) for r in results]
 
-    table_results = {
-        "table": results
+    Team = [result[3] for result in results]
+    Capacity = [result[4] for result in results]
+
+    Stadium_results = {
+        "Team": Team,
+        "Capacity":Capacity
     }
 
     session.close()
 
-    return jsonify(table_results)
+    return jsonify(Stadium_results)
 
 @app.route ("/api/records")
 def record_table():
@@ -78,14 +82,18 @@ def record_table():
     results = session.query(Record.Team, Record.Won, Record.Lost, Record.Tied, Record.Percentage, Record.Years, Record.Total_Games, Record.Conference).all()
 
     results = [list (r) for r in results]
+    
+    Team = [result[3] for result in results]
+    Capacity = [result[4] for result in results]
 
-    table_results = {
-        "table": results
+    team_results = {
+        "Team": Team,
+        "Capacity":Capacity
     }
 
     session.close()
 
-    return jsonify(table_results)
+    return jsonify()
 
 
 
