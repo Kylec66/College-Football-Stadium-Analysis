@@ -26,11 +26,11 @@
           </li>
           <br>
           <li class="nav-item">
-            <a class="nav-link" href="record.html">Record Analysis</a>
+            <a class="nav-link" href="/record">Record Analysis</a>
           </li>
           <br>         
           <li class="nav-item">
-            <a class="nav-link" href="stadium.html">Stadium Analysis</a>
+            <a class="nav-link" href="/stadium">Stadium Analysis</a>
           </li>
 
   <div class="container">
@@ -43,7 +43,7 @@
 
     <div class="row">
       <div class="col-md-2">
-
+        
         <div class="well">
           <h5>College Conference:</h5>
           <select id="selDataset" onchange="optionStadiumChanged(this.value)"></select>
@@ -57,8 +57,10 @@
         </div>
       </div>
     </div>
-
-      <div class= "col-md-8">
+    
+    <table id="example" class="display" width="100%"></table>
+      
+    <div class= "col-md-8">
         <table id="record" class="display" width= "100%"></table>
       </div>
     
@@ -69,8 +71,14 @@
     </div>
   </div>
 
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <script src="https:////cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
   
   <script src="static/js/logic.js"></script>
   

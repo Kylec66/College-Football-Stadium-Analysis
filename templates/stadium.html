@@ -44,32 +44,12 @@
 
     <h2>Analysis</h2>
     <hr>
-
-    <div class="row" >
-      <div class="col-md-6">
-        <label for="years">Year:</label>
-        <br>
-
-        <select name="year" id="year" onchange="optionYearChanged(this.value)">
-          <option value="before">Before 2000</option>
-          <option value="after">2000+</option>
-        </select>        
-        <div id="bar"></div>
-
-      </div>
-      <div class="col-md-6">
-
-        <table id="example" class="display" width="100%"></table>
-
-      </div>
-    </div>
-
     <div class="row">
       <div class="col-md-6"> 
-        <label for="years">Conference:</label>
+        <label for="Conference">Conference:</label>
         <br>
 
-        <select name="Conference" id="Conference" onchange="optionRecordChanged(this.value)">
+        <select name="Conference" id="Conference" onchange="optionStadiumChanged(this.value)">
           <option value="ACC">ACC</option>
           <option value="American">American</option>
           <option value="Big 12">Big 12</option>
