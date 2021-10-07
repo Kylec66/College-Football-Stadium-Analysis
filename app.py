@@ -67,7 +67,7 @@ def stadium_table(conference):
 
     results = session.query(Stadiums.Stadium, Stadiums.Latitude, Stadiums.Longitude, Stadiums.City, Stadiums.State, Stadiums.Team, Stadiums.Conference, Stadiums.Capacity, Stadiums.Built).filter(Stadiums.Conference == conference).all()
     
-    Stadium= [result[0] for result in results]
+    Stadium= [result[5] for result in results]
     Capacity= [result[7] for result in results]
 
     stadium_results = {
