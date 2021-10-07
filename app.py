@@ -92,6 +92,8 @@ def record_table(conference):
         conference = "Mountain West"
     elif conference == "SunBelt":
         conference = "Sun Belt"
+    elif conference == "TheAmerican":
+        conference = "The American"
 
     results = session.query(Record.Team, Record.Won, Record.Lost, Record.Tied, Record.Percentage, Record.Years, Record.Total_Games, Record.Conference).filter(Record.Conference == conference).all()
 
