@@ -7,3 +7,7 @@ This analysis we wanted to find out if college football stadiums had an impact o
 ![image](https://user-images.githubusercontent.com/83102597/145467461-6bc52b5b-d206-41ae-9466-5faac526479a.png)
 
 We then cleaned the data on Jupyter notebook and made a database to pull from to create a place to query our data. This data would be sent to our app.js file where we took a flask app for our HTML and created our Geo map and our Barcharts for our analysis. Our SQLite had 2 tables one for the stadium data and one for the Win-loss records all of which we scraped off of the wikipedia. In our app.js we were also able to create a sorting drop down that would allow you to select conferences to look at rather than the entire NCAA.
+
+![image](https://user-images.githubusercontent.com/83102597/145467550-c0e2f4ef-88f5-4ac6-8784-0a4a39dfe11f.png)
+![image](https://user-images.githubusercontent.com/83102597/145467629-ba8e073d-91ed-4a9f-a580-359001574a2f.png)
+
